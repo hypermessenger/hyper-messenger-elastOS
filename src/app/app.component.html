@@ -1,0 +1,14 @@
+<ion-app>
+    <ion-menu menuId="sideMenu" contentId="content1" side="start">
+        <ion-header class="ion-padding ion-no-border">
+            <qrcode [qrdata]="identity" width="180" errorCorrectionLevel="M" margin="0"></qrcode>
+            <div class="my-address ion-margin-top">My Identity</div>
+            <div class="address">{{ identity }}</div>
+            <ion-button class="ion-margin-top dangerButton" (click)="onCopyIdentity()">
+                <ion-icon name="copy" slot="start"></ion-icon>
+                <ion-label class="ion-text-capitalize">Copy Identity</ion-label>
+            </ion-button>
+        </ion-header>
+    </ion-menu>
+    <ion-router-outlet id="content1"></ion-router-outlet>
+</ion-app>

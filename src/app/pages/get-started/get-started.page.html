@@ -1,0 +1,40 @@
+<ion-content>
+    <ion-grid class="container">
+        <h1>Get Started</h1>
+        <p class="intro">You can start to contact someone or <br> finish your Hyper settings below.</p>
+        <div class="skip" (click)="native.go('/home')">Skip for now</div>
+        <ion-row class="ion-activatable ripple" (click)="native.go('/profile-info', { fromGetStartedPage: true })">
+            <ion-col size="3.5" class="left-col">
+                <ion-img src="assets/images/slide2.png"></ion-img>
+            </ion-col>
+            <ion-col size="7.5" class="right-col">
+                <h1>Edit My Profile</h1>
+                <p>Manage your decentralized identity information.</p>
+                <span id="primary">Edit now</span>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+        <ion-row class="ion-activatable ripple" (click)="native.go('/add-friend', { fromGetStartedPage: true })">
+            <ion-col size="3.5" class="left-col">
+                <ion-img src="assets/images/no-messages.png"></ion-img>
+            </ion-col>
+            <ion-col size="7.5" class="right-col">
+                <h1>Add friends</h1>
+                <p>Invite and connect with friends based on their DID.</p>
+                <span id="danger">Add now</span>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+        <ion-row class="ion-activatable ripple" (click)="native.go('/add-group', { fromGetStartedPage: true })">
+            <ion-col size="3.5" class="left-col">
+                <ion-img src="assets/images/no-groups.png"></ion-img>
+            </ion-col>
+            <ion-col size="7.5" class="right-col">
+                <h1>Create group</h1>
+                <p>Set up a new group and invite friends to join.</p>
+                <span id="warning">Create now</span>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+    </ion-grid>
+</ion-content>

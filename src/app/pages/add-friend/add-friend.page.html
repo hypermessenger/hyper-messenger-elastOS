@@ -1,0 +1,38 @@
+<ion-content>
+    <ion-grid class="container">
+        <ion-row class="input-row">
+            <ion-col size="12" class="label-col">
+                <ion-label>
+                    Please scan the QR code or paste the identity (DID) of your friend in order to invite.
+                </ion-label>
+            </ion-col>
+        </ion-row>
+        <ion-row class="input-row">
+            <ion-col size="12" class="label-col">
+                <ion-label>Scan or paste identity</ion-label>
+            </ion-col>
+            <ion-col size="10">
+                <ion-input [(ngModel)]="identity" clearInput mode="ios"></ion-input>
+            </ion-col>
+            <ion-col size="2">
+                <ion-thumbnail class="ion-activatable ripple" (click)="onScan()">
+                    <ion-img src="assets/icon/camera_white.png"></ion-img>
+                    <ion-ripple-effect></ion-ripple-effect>
+                </ion-thumbnail>
+            </ion-col>
+        </ion-row>
+        <ion-row class="input-row">
+            <ion-col size="12" class="label-col">
+                <ion-label>Welcome message</ion-label>
+            </ion-col>
+            <ion-col size="12" style="padding-top: 0;">
+                <ion-textarea [(ngModel)]="message" autoGrow clearOnEdit></ion-textarea>
+            </ion-col>
+        </ion-row>
+        <ion-button class="dangerButton" (click)="onFinish()">
+            <ion-label>Add Contact</ion-label>
+          <!--   <ion-spinner *ngIf="addingFriend" name="crescent"></ion-spinner> -->
+        </ion-button>
+    </ion-grid>
+</ion-content>
+

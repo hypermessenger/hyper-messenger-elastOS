@@ -1,0 +1,66 @@
+<ion-content>
+    <ion-row class="header container">
+        <h1>Messages</h1>
+        <div *ngIf="!messageService.selectingMessage && !messageService.pinningMessage" class="btns-row">
+<!--             <ion-img src="assets/icon/threedots.png" class="left-btn" (click)="hasMessage ? onOptions($event) : onMenu()"></ion-img> -->
+            <ion-img src="assets/icon/threedots.png" class="left-btn" (click)="onMenu()"></ion-img>
+            <ion-img src="assets/icon/newfriend.png" (click)="native.go('/add-friend')"></ion-img>
+        </div>
+        <ion-label *ngIf="messageService.pinningMessage" (click)="messageService.pinningMessage = false">Done</ion-label>
+    </ion-row>
+
+    <ion-grid class="empty-grid container" *ngIf="!hasMessage">
+        <img src="assets/images/no-messages.png" />
+        <ion-button class="tertiaryButton" (click)="native.go('/add-friend')">Add contacts and chat!</ion-button>
+    </ion-grid>
+
+    <!--<ion-slides class="messages-slide container" [options]="slideOpts" *ngIf="hasMessage">
+        <ion-slide *ngFor="let state of stateList; let i=index;" (click)="onCard(i)" (press)="onAction(i, $event)">
+            <ion-avatar [ngStyle]="{'background-color': state.tempAvatar.background }">
+                <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+            </ion-avatar>
+            <ion-label>{{ state.friend.nickname }}</ion-label>
+        </ion-slide>
+    </ion-slides>-->
+
+    <ion-grid class="messages-grid container" *ngIf="hasMessage">
+        <ion-item-sliding *ngFor="let state of stateList; let i=index;">
+            <ion-item lines="none">
+                <ion-row class="message-row ion-activatable ripple" (click)="onCard(i)">
+                    <ion-col size="2" class="left-col">
+                        <ion-avatar [ngStyle]="{
+                            'color': state.friend.avatarColor ? 
+                            state.friend.avatarColor : state.tempAvatar.color
+                        }">
+                            <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+                            <div class="state-container">
+                                <div class="connection-state" [ngStyle]="{'background-color': state.isOnline ? '#2dd36f' : '#e31a50'}"></div>
+                            </div>
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col size="6.5" class="mid-col">
+                        <ion-label>{{ state.friend.nickname }}</ion-label>
+                        <span *ngIf="state.messageText.length >= 25">{{ state.messageText.slice(0, 25) }}...</span>
+                        <span *ngIf="state.messageText.length < 25">{{ state.messageText }}</span>
+                    </ion-col>
+                    <ion-col *ngIf="!messageService.selectingMessage && !messageService.pinningMessage" size="3.5" class="right-col">
+                        <ion-label>{{ state.dateTime }}</ion-label>
+                        <div *ngIf="state.messageCount > 0" class="count-bubble">
+                            <span>{{ state.messageCount }}</span>
+                        </div>
+                        <ion-icon *ngIf="state.messageCount === 0 && !state.isReceived" class="checkmark-icon" [class.seen]="state.isSeen" name="checkmark-done"></ion-icon>
+                    </ion-col>
+                    <ion-col *ngIf="messageService.pinningMessage" size="3.5" class="right-col">
+                        <ion-img src="assets/icon/pin.svg"></ion-img>
+                    </ion-col>
+                    <ion-ripple-effect></ion-ripple-effect>
+                </ion-row>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option color="danger" (click)="onDelete(state.friend)">
+                    <ion-label>Delete</ion-label>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-grid>
+</ion-content>  

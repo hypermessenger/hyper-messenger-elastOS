@@ -1,0 +1,31 @@
+<ion-content>
+    <ion-grid *ngIf="isHiveRegistered; else notPublished" class="status-check">
+        <img src="assets/images/status_valid.png" />
+        <h1>Hive Vault is registered</h1>
+        <p>
+            You have a registered Hive Vault, please continue.
+        </p>
+        <div class="items">
+            <ion-button class="warningButton" (click)="onContinue()">
+                Continue
+            </ion-button>
+        </div>
+    </ion-grid>
+    <ng-template #notPublished>
+        <ion-grid class="status-check">
+            <img src="assets/images/status_invalid.png" />
+            <h1>Hive is not registered</h1>
+            <p>
+                If you already registered your Hive Vault before, please check the status, otherwise register your Hive Vault. Registration confirmation may take a few minutes.
+            </p>
+            <div class="items">
+                <ion-button class="dangerButton" (click)="onCheckHive()">
+                    Check Status
+                </ion-button>
+                <ion-button class="tertiaryButton" (click)="onRegisterHive()">
+                    Register Hive Vault
+                </ion-button>
+            </div>
+        </ion-grid>
+    </ng-template>
+</ion-content>

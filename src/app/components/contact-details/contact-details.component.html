@@ -1,0 +1,25 @@
+<ion-content color="light">
+    <div class="contact-popup">
+        <ion-icon name="close" (click)="onClose()"></ion-icon>
+        
+        <div class="title">
+            <ion-label>{{ friend.nickname }}</ion-label>
+        </div>
+        
+        <ion-avatar>
+            <ion-label [ngStyle]="{ 'color': friend.avatarColor ? friend.avatarColor : UI.getColor() }">
+                {{ UI.getInitials(friend.nickname) }}
+            </ion-label>
+        </ion-avatar>
+
+        <div class="message-bubble">
+            {{ message }}
+            <div class="bubble-tail"></div>
+        </div>
+
+        <div class="buttons">
+            <ion-button class="dangerButton" (click)="onReinvite()">Reinvite</ion-button>
+            <ion-button class="mediumButton" (click)="onWithdraw()">Withdraw</ion-button>
+        </div>
+    </div>
+</ion-content>

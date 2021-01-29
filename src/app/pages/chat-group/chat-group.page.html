@@ -1,0 +1,83 @@
+<ion-content [scrollEvents]="true">
+    <ion-grid class="chat-grid">
+        <ion-row *ngFor="let message of messageList; index as i">
+            <ion-col *ngIf="isSent(message.direction); else receivedCol">
+                <div *ngIf="hasDate(i)" class="date-container">
+                    <ion-label>{{getDate(message.timestamp)}}</ion-label>
+                </div>
+                <div class="sent-container">
+                    <div class="sent-wrapper">
+                        <div class="sent-bubble">
+                            <div class="sent-text">
+                                {{ message.text }}
+                            </div>
+                            <div class="sent-time">
+                                <ion-icon [class.seen]="message.isSeen"  name="checkmark-done"></ion-icon>
+                                <span>{{ getTime(message.timestamp) }}</span>
+                            </div>
+                            <div class="bubble-tail"></div>
+                        </div>
+                    </div>
+                    <ion-avatar class="orange-color">
+                        <ion-label>{{ UI.getInitials(myName) }}</ion-label>
+                    </ion-avatar>
+                </div>
+            </ion-col>
+
+            <ng-template #receivedCol>
+                <ion-col>
+                    <div *ngIf="hasDate(i)" class="date-container">
+                        <ion-label>{{getDate(message.timestamp)}}</ion-label>
+                    </div>
+                    <div class="received-container">
+                        <ion-avatar>
+                            <ion-label>{{ UI.getInitials(message.nickname) }}</ion-label>
+                        </ion-avatar>
+                        <div class="received-wrapper">
+                            <div class="received-bubble">
+                                <div class="received-nickname">
+                                    {{ message.nickname }}
+                                </div>
+                                <div class="received-text">
+                                    {{ message.text }}
+                                </div>
+                                <div class="sent-time">
+                                    <span>{{ getTime(message.timestamp) }}</span>
+                                </div>
+                                <div class="bubble-tail"></div>
+                            </div>
+                        </div>
+                    </div>
+                </ion-col>
+            </ng-template>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<ion-footer class="chat-footer ion-no-border">
+    <ion-row>
+        <ion-col size="0.5" class="left-col">
+            <!--<div class="icon-container ion-activatable ripple">
+                <ion-icon name="add-circle"></ion-icon>
+                <ion-ripple-effect></ion-ripple-effect>
+            </div>
+            <div class="icon-container ion-activatable ripple">
+                <ion-icon (click)="showEmojiPicker = !showEmojiPicker" color="secondary" name="happy"></ion-icon>
+                <ion-ripple-effect></ion-ripple-effect>
+            </div>-->
+        </ion-col>
+        <ion-col size="10" class="mid-col">
+            <ion-input [(ngModel)]="message" (ionChange)="onInputChange($event)" (click)="scrollToBottom()" placeholder="Type a message"></ion-input>
+        </ion-col>
+        <ion-col size="1.5" class="right-col">
+            <div class="icon-container ion-activatable ripple orange-color" (click)="onSend()">
+                <ion-img src="assets/icon/arrow-up_white.png"></ion-img>
+                <ion-ripple-effect></ion-ripple-effect>
+            </div>
+        </ion-col>
+    </ion-row>
+
+    <!--<div class="emojiContainer" [style.height]="showEmojiPicker ? '300px' : '0px'">
+        <emoji-picker (onEmojiSelect)="addEmoji($event)"></emoji-picker>
+    </div>-->
+</ion-footer>

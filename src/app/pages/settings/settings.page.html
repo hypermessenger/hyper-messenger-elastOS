@@ -1,0 +1,68 @@
+<ion-content color="light">
+    <ion-card>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-text class="card-title">General</ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col>
+                        <ion-item>
+                            <ion-label class="card-label">Hyper Version: </ion-label>
+                            <ion-text>1.0.0</ion-text>
+                        </ion-item>
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-text class="card-title">Test</ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row><ion-col><ion-button (click)="test()">test</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="test2()">test2</ion-button></ion-col></ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-text class="card-title">Add Dummy Data</ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row><ion-col><ion-button (click)="createFriend()">createFriend</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="createMessage()">createMessage</ion-button></ion-col></ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content>
+            <ion-grid>
+                <ion-row>
+                    <ion-col>
+                        <ion-text class="card-title">Test</ion-text>
+                    </ion-col>
+                </ion-row>
+                <ion-row><ion-col><ion-button (click)="clearLocalData()">clearLocalData</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="getUserData()">getUserData</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="setScriptGetUserData()">setScriptGetUserData</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="getFriendList()">getFriendList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="clearFriendList()">clearFriendList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="getGroupList()">getGroupList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="setScriptGetGroupMessageList()">setScriptGetGroupMessageList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="getGroupMessageList()">getGroupMessageList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="clearGroupList()">clearGroupList</ion-button></ion-col></ion-row>
+                <ion-row><ion-col><ion-button (click)="clearSelfData()">clearSelfData</ion-button></ion-col></ion-row>
+            </ion-grid>
+        </ion-card-content>
+    </ion-card>
+</ion-content>

@@ -1,0 +1,22 @@
+<ion-content>
+  <ion-slides #slide pager>
+    <ion-slide class="onboard">
+      <img src="assets/images/slide1.png" />
+      <h1>Welcome to Hyper</h1>
+      <p>A free peer-to-peer decentralized Instant Messenger for maximum privacy and security.</p>
+      <ion-button class="tertiaryButton" (click)="slideNext(slide)">Next</ion-button>
+    </ion-slide>
+    <ion-slide class="onboard">
+      <img src="assets/images/slide2.png" />
+      <h1>End to End Encryption</h1>
+      <p>Prevent third-party access to your data and ensure protected transfer.</p>
+      <ion-button class="dangerButton" (click)="slideNext(slide)">Next</ion-button>
+    </ion-slide>
+    <ion-slide class="onboard">
+      <img id="enlarge" src="assets/images/slide3.png" />
+      <h1>Share Files Securely</h1>
+      <p>Store, send or receive files with advanced decentralized identity based access.</p>
+      <ion-button class="warningButton" (click)="getStarted()">Get Started</ion-button>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

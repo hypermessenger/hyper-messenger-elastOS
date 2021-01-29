@@ -1,0 +1,26 @@
+<ion-content>
+    <ion-grid class="container">
+    <!--     <ion-avatar *ngIf="!userAvatar" (click)="showUploadOptions()">
+          <ion-icon name="camera"></ion-icon>
+          <span>Upload</span>
+        </ion-avatar>
+        <ion-img
+            class="userAvatar"
+            *ngIf="userAvatar" 
+            [src]="'data:'+userAvatar.contentType+';base64,'+userAvatar.data"
+            (click)="showUploadOptions()">
+        </ion-img> -->
+        <ion-row class="input-row" *ngFor="let info of profileInfo">
+            <ion-col size="12" class="label-col">
+                <ion-label>{{ info.title }}</ion-label>
+            </ion-col>
+            <ion-col size="12">
+                <ion-input *ngIf="info.type !== 'description'" [(ngModel)]="info.value" [type]="info.type === 'phone' ? 'number' : 'none'" clearInput mode="ios"></ion-input>
+                <ion-textarea *ngIf="info.type === 'description'" [(ngModel)]="info.value" clearInput mode="ios"></ion-textarea>
+            </ion-col>
+        </ion-row>
+        <ion-button class="primaryButton" (click)="onUpdate()">
+            Update
+        </ion-button>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,31 @@
+<ion-content>
+    <ion-tabs #tabs>
+        <ion-tab-bar slot="bottom">
+            <ion-tab-button tab="messages" (click)="onMessagesTab()">
+                <ion-badge *ngIf="newMessageCount>0" color="tertiary" class="tab-badge">{{newMessageCount}}</ion-badge>
+                <ion-img [src]="activeTab === 1 ? '/assets/icon/tabs/active/message.svg' : '/assets/icon/tabs/inactive/message.svg'"></ion-img>
+                <ion-label *ngIf="activeTab === 1" [color]="getColor(1)">Messages</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="groups" (click)="onGroupsTab()">
+                <ion-badge *ngIf="newGroupCount>0" color="warning" class="tab-badge">{{newGroupCount}}</ion-badge>
+                <ion-img [src]="activeTab === 2 ? '/assets/icon/tabs/active/group.svg' : '/assets/icon/tabs/inactive/group.svg'"></ion-img>
+                <ion-label *ngIf="activeTab === 2" [color]="getColor(2)">Groups</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="contacts" (click)="onContactsTab()">
+                <ion-badge *ngIf="newContactCount>0" color="danger" class="tab-badge">{{newContactCount}}</ion-badge>
+                <ion-img [src]="activeTab === 3 ? '/assets/icon/tabs/active/contact.svg' : '/assets/icon/tabs/inactive/contact.svg'"></ion-img>
+                <ion-label *ngIf="activeTab === 3" [color]="getColor(3)">Contacts</ion-label>
+            </ion-tab-button>
+
+            <ion-tab-button tab="account" (click)="onAccountTab()">
+                <ion-badge *ngIf="newAccountCount>0" color="primary" class="tab-badge">{{newAccountCount}}</ion-badge>
+                <ion-img [src]="activeTab === 4 ? '/assets/icon/tabs/active/account.svg' : '/assets/icon/tabs/inactive/account.svg'"></ion-img>
+                <ion-label *ngIf="activeTab === 4" [color]="getColor(4)">Account</ion-label>
+            </ion-tab-button>
+        </ion-tab-bar>
+    </ion-tabs>
+</ion-content>
+
+

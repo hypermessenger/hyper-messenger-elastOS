@@ -1,0 +1,40 @@
+<ion-content>
+    <ion-grid class="profile-header">
+        <div class="no-avatar">
+            <ion-label *ngIf="name">{{ UI.getInitials(name).toUpperCase() }}</ion-label>
+            <ion-img *ngIf="!name" src="assets/logo/lightning.svg"></ion-img>
+        </div>
+        <h1 *ngIf="name">{{ name }}</h1>
+    </ion-grid>
+
+    <ion-grid class="profile-list">
+        <ion-row class="ripple ion-activatable" (click)="native.go('/profile-info')">
+            <ion-col size="2.25" class="left-col">
+                <ion-thumbnail>
+                    <ion-img src="assets/icon/account/profile-info.svg"></ion-img>
+                </ion-thumbnail>
+            </ion-col>
+            <ion-col size="8.25" class="mid-col removeBorder">
+                <ion-label>See profile info</ion-label>
+            </ion-col>
+            <ion-col size="1.5" class="right-col removeBorder">
+                <ion-icon name="chevron-forward"></ion-icon>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+        <!--<ion-row class="ripple ion-activatable" (click)="native.go('/settings')">
+            <ion-col size="2.25" class="left-col">
+                <ion-thumbnail>
+                    <ion-img src="assets/icon/account/settings.svg"></ion-img>
+                </ion-thumbnail>
+            </ion-col>
+            <ion-col size="8.25" class="mid-col removeBorder">
+                <ion-label>Settings</ion-label>
+            </ion-col>
+            <ion-col size="1.5" class="right-col removeBorder">
+                <ion-icon name="chevron-forward"></ion-icon>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>-->
+    </ion-grid>
+</ion-content>

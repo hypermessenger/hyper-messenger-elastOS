@@ -1,0 +1,24 @@
+.container {
+    margin: 0;
+
+    #header-row {
+        .left-col {
+            ion-img {
+                width: 28px;
+                height: 28px;
+            }
+        }
+        .mid-col {
+            ion-label {
+                font-size: 17px;
+                font-weight: 600;
+                letter-spacing: -0.34px;
+                text-align: left;
+                color: #222222;
+            }
+        }
+    }
+
+    .message-row {
+    }
+}

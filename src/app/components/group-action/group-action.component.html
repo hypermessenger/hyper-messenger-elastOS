@@ -1,0 +1,17 @@
+<ion-content color="light">
+    <div class="group-action-modal">
+        <ion-icon name="close" (click)="onClose()"></ion-icon>
+        
+        <div class="title">
+            <ion-label>Group Action</ion-label>
+        </div>
+       
+        <div class="buttons">
+            <ion-button *ngIf="isPending; else inviteButton" class="join-button" (click)="onJoin()">Accept</ion-button>
+            <ng-template #inviteButton>
+                <ion-button class="invite-button" (click)="onInvite()">Invite</ion-button>
+            </ng-template>
+            <ion-button class="leave-button" (click)="onLeave()">Leave</ion-button>
+        </div>
+    </div>
+</ion-content>

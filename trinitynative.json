@@ -1,0 +1,19 @@
+{
+    "build": {
+        "out": "./native-out"
+    },
+    "application": {
+        "name": "Hyper IM",
+        "nativepackageid": "com.hyper.messenger",
+        "icon": "./native/Hyper_Application_Icon_Color_With_Box.png",
+        "splashscreen": "./native/Splash_Screen_Large_Centered.png",
+        "intentscheme": {
+            "scheme": "https",
+            "path": "messenger.hyper.org"
+        },
+        "version": {
+            "code": 10000,
+            "name": "1.0.0"
+        }
+    }
+}

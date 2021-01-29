@@ -1,0 +1,96 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+
+    h1, p {
+        margin: 0;
+        text-align: center;
+    }
+
+    h1 {
+        padding: 0 0 5px;
+        font-size: 34px;
+        font-weight: 700;
+        letter-spacing: 0.37px;
+    }
+
+    p {
+        padding: 0 0 15px;
+        font-size: 17px;
+        font-weight: 400;
+        line-height: 1.18;
+        letter-spacing: -0.34px;
+    }
+
+    .skip {
+        margin: 0;
+        padding: 15px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: -0.31px;
+        color: var(--ion-color-tertiary);
+    }
+
+    ion-row {
+        padding: 20px 0px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.05);
+        background-color: #ffffff;
+
+        .left-col {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            ion-img {
+                width: 72.3px;
+                height: 80px;
+            }
+        }
+
+        .right-col {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+
+            h1, p {
+                text-align: left;
+            }
+            
+            h1 {
+                padding: 0 0 5px;
+                font-size: 17px;
+                font-weight: 700;
+                letter-spacing: -0.34px;
+            }
+
+            p {
+                padding: 0 0 10px;
+                font-size: 14px;
+                font-weight: 500;
+                line-height: 1.43;
+                letter-spacing: -0.08px;
+            }
+
+            span {
+                font-size: 14px;
+                font-weight: 600;
+                letter-spacing: -0.08px;
+            }
+
+            #primary {
+                color: var(--ion-color-primary);
+            }
+            #danger {
+                color: var(--ion-color-danger);
+            }
+            #warning {
+                color: var(--ion-color-warning);
+            }
+        }
+    }
+}

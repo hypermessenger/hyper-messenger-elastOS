@@ -1,0 +1,30 @@
+<ion-content>
+<!--     <ion-grid class="avatar-grid">
+        <ion-avatar>
+            <ion-label *ngIf="name">{{ UI.getInitials(name).toUpperCase() }}</ion-label>
+        </ion-avatar>
+    </ion-grid> -->
+    
+    <ion-grid class="profile-grid">
+        <ion-row *ngFor="let info of profileInfo" class="ripple ion-activatable" [class.removeBottomBorder]="info === profileInfo[profileInfo.length - 1]" (click)="editInfo(info)">
+            <ion-label>{{ info.title }}</ion-label>
+            <ion-col class="info-col">
+                <p *ngIf="info.value">{{ info.value }}</p>
+                <ion-icon name="chevron-forward"></ion-icon>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+    </ion-grid>
+    <ion-grid class="profile-grid">
+        <ion-row>
+            <ion-col class="address-col" size="8">
+                <ion-label>Identity</ion-label>
+                <span>{{identity}}</span>
+            </ion-col>
+            <ion-img src="assets/icon/copy.png" (click)="onCopyIdentity()"></ion-img>
+        </ion-row>
+        <div class="qrcode-container">
+            <qrcode [qrdata]="identity" [size]="250"></qrcode>
+        </div>
+    </ion-grid>
+</ion-content>

@@ -1,0 +1,68 @@
+<ion-content>
+    <ion-row class="header container">
+        <h1>Groups</h1>
+        <div *ngIf="!groupService.selectingGroup && !groupService.pinningGroup" class="btns-row">
+            <!--<ion-img src="assets/icon/threedots.png" class="left-btn ripple ion-activatable" (click)="hasGroup ? onOptions($event) : onMenu()"></ion-img>-->
+            <ion-img src="assets/icon/threedots.png" class="left-btn ripple ion-activatable" (click)="onMenu()"></ion-img>
+            <ion-img src="assets/icon/newgroup.png" class="ripple ion-activatable" (click)="native.go('/add-group')"></ion-img>
+        </div>
+        <ion-label *ngIf="groupService.pinningGroup" (click)="groupService.pinningGroup = false">Done</ion-label>
+    </ion-row>
+
+    <ion-grid class="empty-grid container" *ngIf="!hasGroup">
+        <img src="assets/images/no-groups.png" />
+        <ion-button class="warningButton" (click)="native.go('/add-group')">Create group</ion-button>
+    </ion-grid>
+
+    <!--<ion-slides class="messages-slide container" [options]="slideOpts" *ngIf="hasGroup">
+        <ion-slide *ngFor="let state of stateList; let i=index;" (click)="onCard(i)" (press)="onAction(i, $event)">
+            <ion-thumbnail [ngStyle]="{'background-color': state.tempAvatar.background }">
+                <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+            </ion-thumbnail>
+            <ion-label>{{ state.group.title }}</ion-label>
+        </ion-slide>
+    </ion-slides>-->
+
+    <ion-grid class="messages-grid container" *ngIf="hasGroup">
+        <ion-item-sliding *ngFor="let state of stateList; let i=index;">
+            <ion-item lines="none">
+                <ion-row class="message-row ion-activatable ripple" (click)="onCard(i)">
+                    <ion-col size="2" class="left-col">
+                        <ion-avatar>
+                            <ion-label [ngStyle]="{ 'color': state.group.avatarColor }">{{ state.tempAvatar.initial }}</ion-label>
+                        </ion-avatar>
+                    </ion-col>
+                    <ion-col size="5.5" class="mid-col">
+                        <ion-label>{{ state.group.title }}</ion-label>
+                        <span *ngIf="state.messageText.length >= 25">{{ state.messageText.slice(0, 25) }}...</span>
+                        <span *ngIf="state.messageText.length < 25">{{ state.messageText }}</span>
+                    </ion-col>
+                    <ion-col *ngIf="!groupService.pinningGroup && !groupService.selectingGroup" size="3.5" class="right-col">
+                        <ion-label>{{ state.dateTime }}</ion-label>
+                        <div *ngIf="state.messageCount > 0" class="count-bubble" style="background: var(--ion-color-warning);">
+                            <span>{{ state.messageCount }}</span>
+                        </div>
+                    </ion-col>
+                    <ion-col size="1">
+                        <ion-img src="assets/icon/dots_vertical.png" class="more-action ripple ion-activatable" (click)="onAction(state.group, $event)"></ion-img>
+                    </ion-col>
+                    <ion-col *ngIf="groupService.pinningGroup" size="3.5" class="right-col">
+                        <div class="pin-container"></div>
+                    </ion-col>
+                    <ion-ripple-effect></ion-ripple-effect>
+                </ion-row>
+            </ion-item>
+            <ion-item-options side="end">
+                <ion-item-option *ngIf="state.isJoinable && state.isPending" color="success" (click)="onJoin(state.group)">
+                    <ion-label>Accept</ion-label>
+                </ion-item-option>
+                <ion-item-option *ngIf="!state.isPending" color="warning" (click)="onInvite(state.group)">
+                    <ion-label>Invite</ion-label>
+                </ion-item-option>
+                <ion-item-option color="danger" (click)="onLeave(state.group)">
+                    <ion-label>Leave</ion-label>
+                </ion-item-option>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-grid>
+</ion-content>  

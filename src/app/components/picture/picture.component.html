@@ -1,0 +1,32 @@
+<ion-grid class="messages-grid container">
+    <ion-row class="message-row" id="header-row">
+        <ion-col size="3.75" class="left-col removeBorder" (click)="cancel()">
+            <ion-label>Cancel</ion-label>
+        </ion-col>
+        <ion-col size="8.25" class="mid-col removeBorder">
+            <ion-label>Upload a picture</ion-label>
+        </ion-col>
+    </ion-row>
+    <ion-row class="message-row ripple ion-activatable" (click)="uploadPicture(0)">
+        <ion-col size="2" class="left-col">
+            <ion-thumbnail id="gallery">
+                <ion-icon name="image"></ion-icon>
+            </ion-thumbnail>
+        </ion-col>
+        <ion-col size="10" class="mid-col">
+            <ion-label>Upload from gallery</ion-label>
+        </ion-col>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-row>
+    <ion-row class="message-row ripple ion-activatable" (click)="uploadPicture(1)">
+        <ion-col size="2" class="left-col">
+            <ion-thumbnail id="camera">
+                <ion-icon name="camera"></ion-icon>
+            </ion-thumbnail>
+        </ion-col>
+        <ion-col size="10" class="mid-col">
+            <ion-label>Take a picture</ion-label>
+        </ion-col>
+        <ion-ripple-effect></ion-ripple-effect>
+    </ion-row>
+</ion-grid>

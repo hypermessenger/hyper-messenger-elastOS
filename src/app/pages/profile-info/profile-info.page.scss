@@ -1,0 +1,109 @@
+.avatar-grid {
+    padding: 25px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #3980eb;
+
+    ion-avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 81px;
+        height: 81px;
+        background: white;
+
+        ion-label {
+            font-size: 26px;
+            font-weight: 700;
+            color: black;
+        }
+    }
+}
+
+.profile-grid {
+    margin-top: 15px;
+    padding: 0 20px;
+    background: white;
+    border-top: 1.5px solid #eaebf3;
+    border-bottom: 1.5px solid #eaebf3;
+
+    ion-row {
+        padding: 15px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1.5px solid #eaebf3;
+
+        ion-label {
+            font-size: 16px;
+            font-weight: 500;
+            color: #989aa2;
+        }
+
+        .info-col {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 0;
+
+            p {
+                font-size: 18px;
+                font-weight: 500;
+                color: #222222;
+                margin: 0 3px 0;
+            }
+
+            ion-icon {
+                font-size: 20px;
+                margin-top: 2px;
+            }
+        }
+
+        .address-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+
+            ion-label {
+                font-size: 16px;
+                font-weight: 500;
+                color: #989aa2;
+                word-break: break-all;
+            }
+
+            span {
+                font-size: 20px;
+                font-weight: 400;
+                letter-spacing: 0.35px;
+                word-break: break-all;
+            }
+        }
+
+        ion-img {
+            width: 25px;
+            height: 25px;
+            margin-top: 4px;
+        }
+    }
+
+    .qrcode-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        zoom: 1.5;
+    }
+
+    .removeBottomBorder {
+        border-bottom: none;
+    }
+
+    .removeTopBorder {
+        border-top: none;
+    }
+}
+
+

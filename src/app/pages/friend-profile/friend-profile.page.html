@@ -1,0 +1,49 @@
+<ion-content>
+<!--     <ion-grid class="avatar-grid">
+        <ion-avatar>
+            <ion-label *ngIf="friend.nickname">{{ UI.getInitials(friend.nickname).toUpperCase() }}</ion-label>
+        </ion-avatar>
+    </ion-grid> -->
+    <ion-grid class="profile-grid">
+        <ion-row *ngFor="let info of profileInfo" class="ripple" [class.removeBottomBorder]="info === profileInfo[profileInfo.length - 1]">
+            <ion-label>{{ info.title }}</ion-label>
+            <ion-col class="info-col">
+                <p *ngIf="info.value">{{ info.value }}</p>
+            </ion-col>
+            <ion-ripple-effect></ion-ripple-effect>
+        </ion-row>
+    </ion-grid>
+</ion-content>
+
+<!--<ion-content>
+    <ion-grid class="container">-->
+        <!-- Kept for reference incase we give contact an avatar -->
+        <!--<ion-avatar>
+            <ion-icon name="camera"></ion-icon>
+            <span>Upload</span>
+        </ion-avatar> -->
+
+        <!--<ion-row class="input-row">
+                <ion-col size="12" class="label-col">
+                    <ion-label>Nickname</ion-label>
+                </ion-col>
+                <ion-col size="12">
+                    <ion-input [(ngModel)]="nickname" clearInput mode="ios"></ion-input>
+                </ion-col>
+            </ion-row>-->
+
+        <!-- Kept for reference incase we fill contacts with full profile info -->
+        <!--<ion-row class="input-row" *ngFor="let info of profileInfo">
+            <ion-col size="12" class="label-col">
+                <ion-label>{{ info.title }}</ion-label>
+            </ion-col>
+            <ion-col size="12">
+                <ion-input *ngIf="info.type !== 'description'" [(ngModel)]="info.value" [type]="info.type === 'phone' ? 'number' : 'none'" clearInput mode="ios" readonly="true"></ion-input>
+                <ion-textarea *ngIf="info.type === 'description'" [(ngModel)]="info.value" clearInput mode="ios" readonly="true"></ion-textarea>
+            </ion-col>
+        </ion-row> -->
+
+        <!--<ion-button color="primary" (click)="onUpdate()">Update</ion-button>-->
+    <!--</ion-grid>
+</ion-content>-->
+

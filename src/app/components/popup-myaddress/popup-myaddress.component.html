@@ -1,0 +1,30 @@
+<ion-content>
+    <ion-grid>
+        <ion-row class="ion-margin-top">
+            <ion-col class="ion-text-center">
+                <ion-text class=" qr-code-text">'Invite Me' QR Code</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="ion-text-center">
+                <qrcode [qrdata]="carrierAddress" width="180" errorCorrectionLevel="M" margin="0"></qrcode>
+            </ion-col>
+        </ion-row>
+        <ion-row class="ion-margin-top">
+            <ion-col>
+                <ion-text class="card-title">My Address:</ion-text>
+            </ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col class="col-text">{{carrierAddress}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col>
+                <ion-button color="secondary" (click)="onCopyAddress()">
+                    <ion-icon name="copy" slot="start"></ion-icon>
+                    <ion-label class="ion-text-capitalize">Copy Address</ion-label>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>

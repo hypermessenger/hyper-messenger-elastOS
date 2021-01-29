@@ -1,0 +1,31 @@
+<ion-content>
+    <ion-grid *ngIf="isDidPublished; else notPublished" class="status-check">
+        <img src="assets/images/status_valid.png" />
+        <h1>DID is published</h1>
+        <p>
+            You have a published DID, please continue.
+        </p>
+        <div class="items">
+            <ion-button class="warningButton" (click)="onContinue()">
+                Continue
+            </ion-button>
+        </div>
+    </ion-grid>
+    <ng-template #notPublished>
+        <ion-grid class="status-check">
+            <img src="assets/images/status_invalid.png" />
+            <h1>DID is not published</h1>
+            <p>
+                If you already published your DID before, please check the status, otherwise publish your DID. Publishing confirmation may take a few minutes.
+            </p>
+            <div class="items">
+                <ion-button class="dangerButton" (click)="onCheckDID()">
+                    Check Status
+                </ion-button>
+                <ion-button class="tertiaryButton" (click)="onPublishDID()">
+                    Publish DID
+                </ion-button>
+            </div>
+        </ion-grid>
+    </ng-template>
+</ion-content>

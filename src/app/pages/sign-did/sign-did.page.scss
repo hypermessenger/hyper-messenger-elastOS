@@ -1,0 +1,15 @@
+.onboard {
+    background-image: url('/assets/backgrounds/onboard.svg');
+    background-size: cover;
+    
+    img {
+        margin-top: 120px;
+        width: 85px;
+        height: 100px;
+    }
+
+    ion-button {
+        --background: linear-gradient(to right, #fd205c, #ffda01);
+        --box-shadow: 0 8px 16px 0 rgba(254, 129, 44, 0.4);
+    }
+}

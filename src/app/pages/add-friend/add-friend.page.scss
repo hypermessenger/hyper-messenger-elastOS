@@ -1,0 +1,27 @@
+.container {
+    padding: 20px;
+    height: 100%;
+}
+
+.input-row {
+    ion-thumbnail {
+        height: 52px;
+    }
+
+    ion-thumbnail {
+        background: #e31a50;
+        width: 55px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        ion-img {
+            width: 50%;
+            height: 50%;
+        }
+    }
+}
+
+ion-button {
+    margin-top: 10px;
+}

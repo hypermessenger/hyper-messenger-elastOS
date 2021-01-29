@@ -1,0 +1,40 @@
+.status-check {
+    height: 100%;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+
+    img {
+        height: 300px;
+        width: 250px;
+    }
+
+    h1 {
+        margin: 50px 0 20px;
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.07;
+        letter-spacing: 0.36px;
+        color: #222222;
+        text-align: center;
+    }
+
+    p {
+        margin: 0 40px;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 1.29;
+        letter-spacing: -0.34px;
+        color: #222222;
+        text-align: center;
+    }
+
+    .items {
+        position: fixed;
+        width: 90%;
+        bottom: 5%;
+        left: 5%;
+    }
+}

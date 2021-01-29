@@ -1,0 +1,55 @@
+.group-action-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px 20px;
+
+    ion-icon {
+        height: 30px !important;
+        width: 30px !important;
+        color: black;
+        align-self: flex-start !important;
+        position: absolute;
+        margin-top: 17px;
+    }
+
+    .title {
+        margin-top: 20px;
+
+        ion-label {
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.34px;
+            color: #222222;
+        }
+    }
+
+    .buttons {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+
+        .invite-button {
+            --border-radius: 2px;
+            --background: var(--ion-color-warning);
+            --box-shadow: 0 8px 16px 0 rgba(254, 129, 44, 0.4);
+            color: white;
+        }
+
+        .join-button {
+            --border-radius: 2px;
+            --background: var(--ion-color-success);
+            --box-shadow: 0 8px 16px 0 rgba(8, 8, 8, 0.4);
+            color: white;
+        }
+    
+        .leave-button {
+            margin-top: 10px;
+            --border-radius: 2px;
+            --background: var(--ion-color-danger);
+            --box-shadow: 0 8px 16px 0 rgba(253, 32, 92, 0.4);
+            color: white;
+        }
+    }
+}

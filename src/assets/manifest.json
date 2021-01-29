@@ -1,0 +1,52 @@
+{
+  "id": "com.hyper.messenger",
+  "did": "did:elastos:iVCnsPnvqW8ZpTvUBznUZ7xW5sstA9gEYa",
+  "version": "2.0.2",
+  "version_code": 4,
+  "name": "Hyper",
+  "short_name": "Hyper",
+  "short_description": "Hyper Messenger",
+  "description": "Hyper Messenger uses elastOS Hive and DID for decentralized communcation.",
+  "start_url": "index.html",
+  "type": "app",
+  "start_visible": "hide",
+  "category": "communication",
+  "icons": [
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "assets/images/logo.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    }
+  ],
+  "author": {
+    "name": "Hyper.IM",
+    "email": "contact@hyper.im",
+    "website": "www.hyper.im"
+  },
+  "default_locale": "en",
+  "plugins": [
+    "Device",
+    "NetworkStatus",
+    "CarrierPlugin",
+    "File",
+    "Clipboard"
+  ],
+  "urls": [
+    "https://hyper.im/*"
+  ],
+  "background_color": "#4e8ef7",
+  "theme_display": "show",
+  "theme_color": "#4e8ef7",
+  "framework": [
+    "ionic@4.12.0"
+  ],
+  "platform": [
+      "android",
+      "ios"
+  ]
+}

@@ -1,0 +1,12 @@
+<ion-content>
+    <ion-grid class="onboard">
+        <img src="assets/logo/hyperlogo.svg" />
+        <h1>Messenger for <br> maximum privacy <br> and security.</h1>
+        <div class="items">
+            <ion-checkbox [(ngModel)]="doRestore" color="primary"></ion-checkbox>
+            <ion-label>Restore my data</ion-label>
+        </div>
+        <ion-button (click)="signInDID()">Sign in with DID</ion-button>
+    </ion-grid>
+</ion-content>
+      

@@ -1,0 +1,37 @@
+ion-grid {
+    width: 208px;
+    background: #f5f5f5;
+    padding: 0;
+
+    ion-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid #b2b5c2;
+        padding: 15px 20px 15px 15px;
+
+        ion-label {
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: -0.08px;
+            text-align: left;
+            color: #222222;
+        }
+
+        ion-img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .select-icon {
+            width: 12px;
+            height: 12px;
+            border-radius: 100%;
+            border: 1px solid #222222;
+        }
+    }
+
+    .noBorder {
+        border-bottom: none;
+    }
+}

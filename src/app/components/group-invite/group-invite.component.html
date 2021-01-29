@@ -1,0 +1,38 @@
+<ion-content color="light">
+    <div class="group-invite-modal">
+        <ion-icon name="close" (click)="onClose()"></ion-icon>
+        
+        <div class="title">
+            <ion-label>Invite to {{group.title}}</ion-label>
+        </div>
+
+        <ion-grid class="contacts-grid">
+            <ion-row class="contact-row ion-activatable ripple" *ngFor="let item of selectedList; let i=index;" (click)="onChangeCheck(i)">
+                <ion-col size="2" class="left-col">
+                    <ion-avatar [ngStyle]="{
+                        'color': item.friend.avatarColor ? 
+                        item.friend.avatarColor : item.tempAvatar.color
+                    }">
+                        <ion-label>{{ item.tempAvatar.initial }}</ion-label>
+                        <div class="state-container">
+                            <div class="connection-state"></div>
+                        </div>
+                    </ion-avatar>
+                </ion-col>
+                <ion-col size="6.5" class="mid-col">
+                    <ion-label>{{item.friend.nickname}}</ion-label>
+                </ion-col>
+                <ion-col size="3.5" class="right-col">
+                    <div class="select-inactive">
+                        <div *ngIf="item.isSelected" class="select-active"></div>
+                    </div>
+                </ion-col>
+                <ion-ripple-effect></ion-ripple-effect>
+            </ion-row>
+        </ion-grid>
+       
+        <div class="buttons">
+            <ion-button class="invite-button" (click)="onInvite()">Invite</ion-button>
+        </div>
+    </div>
+</ion-content>

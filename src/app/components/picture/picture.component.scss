@@ -1,0 +1,35 @@
+.container {
+    margin: 0;
+
+    #header-row {
+        .left-col {
+            ion-label {
+                font-weight: 400;
+            }
+        }
+    }
+
+    .message-row {
+
+        ion-thumbnail {
+            width: 40px;
+            height: 40px;
+        }
+        
+        ion-label {
+            font-size: 17px;
+            font-weight: 600;
+            letter-spacing: -0.34px;
+            text-align: left;
+            color: #232534;
+        }
+
+        #gallery {
+            background-color: var(--ion-color-warning);
+        }
+
+        #camera {
+            background-color: var(--ion-color-tertiary);
+        }
+    }
+}

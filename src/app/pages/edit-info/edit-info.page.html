@@ -1,0 +1,13 @@
+<ion-content>
+  <ion-grid class="container">
+      <ion-row class="input-row">
+          <ion-col size="12">
+              <ion-input *ngIf="profileInfo.type !== 'description'" [type]="profileInfo.type === 'phone' ? 'number' : 'none'" [(ngModel)]="profileInfo.value" clearInput mode="ios"></ion-input>
+              <ion-textarea *ngIf="profileInfo.type === 'description'" [(ngModel)]="profileInfo.value" clearInput mode="ios"></ion-textarea>
+          </ion-col>
+      </ion-row>
+      <ion-button class="primaryButton" (click)="onUpdate()">
+          Update
+      </ion-button>
+  </ion-grid>
+</ion-content>

@@ -1,0 +1,129 @@
+<ion-content color="light">
+    <ion-row class="header container">
+        <h1>Contacts</h1>
+        <div class="btns-row">
+            <ion-img src="assets/icon/threedots.png" class="left-btn ripple ion-activatable" (click)="onMenu()"></ion-img>
+            <ion-img src="assets/icon/newfriend.png" class="ripple ion-activatable" (click)="native.go('/add-friend')"></ion-img>
+        </div>
+    </ion-row>
+
+    <ion-grid class="empty-grid container" *ngIf="!hasContact">
+        <img src="assets/images/no-contacts.png" />
+        <ion-button class="dangerButton" (click)="native.go('/add-friend')">Add contact</ion-button>
+    </ion-grid>
+
+    <!--------------------- Filter Buttons --------------------->
+    <div class="filter-container" *ngIf="hasContact">
+        <ion-button [ngClass]="getFilter(1)" (click)="onFriendsFilter()">Friends</ion-button>
+        <ion-button [ngClass]="getFilter(2)" (click)="onRequestFilter()">
+            Requests
+            <span *ngIf="requestFriendList.length > 0">&nbsp;&nbsp;</span>
+            <div *ngIf="requestFriendList.length > 0">
+                &nbsp;
+                <div *ngIf="requestFriendList.length > 0">
+                    <span>{{ requestFriendList.length }}</span>
+                </div>
+            </div>
+        </ion-button>
+        <ion-button [ngClass]="getFilter(3)" (click)="onInvitationFilter()">
+            Invitations 
+            <span *ngIf="invitationFriendList.length > 0">&nbsp;&nbsp;</span>
+            <div *ngIf="invitationFriendList.length > 0">
+                <span>{{ invitationFriendList.length }}</span>
+            </div>
+        </ion-button>
+    </div>
+
+    <div *ngIf="hasContact">
+        <!--------------------- Friends Screen --------------------->
+        <ion-grid class="contacts-grid container" *ngIf="activeFilter == 1">
+            <ion-item-sliding *ngFor="let state of activeStateList; let i=index;">
+                <ion-item lines="none" class="ion-no-padding">
+                    <ion-row class="contact-row ion-activatable ripple">
+                        <ion-col size="2" class="left-col" (click)="viewContact(state.friend)">
+                            <ion-avatar [ngStyle]="{
+                                'color': state.friend.avatarColor ? 
+                                state.friend.avatarColor : state.tempAvatar.color
+                            }">
+                                <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+                                <div class="state-container">
+                                    <div class="connection-state" [ngStyle]="{
+                                        'background-color': state.friend.connectionState === ConnectionState.ONLINE ? 
+                                        '#2dd36f' : '#e31a50'
+                                    }">
+                                    </div>
+                                </div>
+                            </ion-avatar>
+                        </ion-col>
+                        <ion-col size="7" class="mid-col" (click)="viewContact(state.friend)">
+                            <ion-label>{{ state.friend.nickname }}</ion-label>
+                        </ion-col>
+                        <ion-col size="3" class="right-col" (click)="messageContact(state)">
+                            <ion-icon src="/assets/icon/tabs/inactive/message.svg"></ion-icon>
+                        </ion-col>
+                        <ion-ripple-effect></ion-ripple-effect>
+                    </ion-row>
+                </ion-item>
+                <ion-item-options side="end">
+                    <ion-item-option color="danger" (click)="onDelete(state.friend)">
+                        <ion-label>Delete</ion-label>
+                    </ion-item-option>
+                </ion-item-options>
+            </ion-item-sliding>
+        </ion-grid>
+        <ion-grid class="empty-grid container ion-margin-top" *ngIf="activeFilter == 1 && activeStateList.length == 0">
+            <img src="assets/images/contacts.png" />
+            <ion-label>You have no active friend</ion-label>
+        </ion-grid>
+    
+        <!--------------------- Request Screen --------------------->
+        <ion-grid class="contacts-grid container" *ngIf="activeFilter == 2">
+            <ion-row class="contact-row" *ngFor="let state of requestStateList; let i=index;">
+                <ion-col size="2" class="left-col">
+                    <ion-avatar [ngStyle]="{
+                        'color': state.friend.avatarColor ? 
+                        state.friend.avatarColor : state.tempAvatar.color
+                    }">
+                        <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+                    </ion-avatar>
+                </ion-col>
+                <ion-col size="7" class="mid-col">
+                    <ion-label>{{ state.friend.nickname }}</ion-label>
+                </ion-col>
+                <ion-col size="3" class="right-col">
+                    <ion-button class="respond-button" (click)="onRespond(state.friend)">RESPOND</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid class="empty-grid container ion-margin-top" *ngIf="activeFilter == 2 && requestStateList.length == 0">
+            <img src="assets/images/contacts.png" />
+            <ion-label>You have no pending request</ion-label>
+        </ion-grid>
+    
+        <!--------------------- Invitation Screen --------------------->
+        <ion-grid class="contacts-grid container" *ngIf="activeFilter == 3">
+            <ion-row class="contact-row" *ngFor="let state of invitationStateList; let i=index;">
+                <ion-col size="2" class="left-col">
+                    <ion-avatar [ngStyle]="{
+                        'color': state.friend.avatarColor ? 
+                        state.friend.avatarColor : state.tempAvatar.color
+                    }">
+                        <ion-label>{{ state.tempAvatar.initial }}</ion-label>
+                    </ion-avatar>
+                </ion-col>
+                <ion-col size="7" class="mid-col">
+                    <ion-label>{{ state.friend.nickname }}</ion-label>
+                </ion-col>
+                <ion-col size="3" class="right-col">
+                    <ion-button class="details-button" (click)="onDetails(state.friend)">DETAILS</ion-button>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+        <ion-grid class="empty-grid container ion-margin-top" *ngIf="activeFilter == 3 && invitationStateList.length == 0">
+            <img src="assets/images/contacts.png" />
+            <ion-label>You have no current invitation</ion-label>
+        </ion-grid>
+    </div>
+    
+</ion-content>
+  
